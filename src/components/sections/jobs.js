@@ -2,9 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
-import { srConfig } from '@config';
 import { KEY_CODES } from '@utils';
-import sr from '@utils/sr';
 
 const StyledJobsSection = styled.section`
   max-width: 700px;
@@ -15,6 +13,11 @@ const StyledJobsSection = styled.section`
     @media (max-width: 600px) {
       display: block;
     }
+  }
+
+  .sub-content {
+    margin-bottom: 10px;
+    font-size: var(--fz-lg);
   }
 `;
 
@@ -168,6 +171,8 @@ const Jobs = () => {
               location
               range
               url
+              projects
+              environment
             }
             html
           }
@@ -181,9 +186,6 @@ const Jobs = () => {
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
   const tabs = useRef([]);
-
-  const revealContainer = useRef(null);
-  useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
   const focusTab = () => {
     if (tabs.current[tabFocus]) {
@@ -219,7 +221,7 @@ const Jobs = () => {
   };
 
   return (
-    <StyledJobsSection id="jobs" ref={revealContainer}>
+    <StyledJobsSection id="jobs">
       <h2 className="numbered-heading">Where I’ve Worked</h2>
 
       <div className="inner">
@@ -249,8 +251,7 @@ const Jobs = () => {
         {jobsData &&
           jobsData.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { title, url, company, range } = frontmatter;
-
+            const { title, url, company, range, projects, environment } = frontmatter;
             return (
               <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
                 <StyledTabContent
@@ -271,8 +272,12 @@ const Jobs = () => {
                   </h3>
 
                   <p className="range">{range}</p>
-
+                  <h5>My Responsibilities</h5>
                   <div dangerouslySetInnerHTML={{ __html: html }} />
+                  <h5>Projects</h5>
+                  <div className="sub-content">{projects}</div>
+                  <h5>Environment</h5>
+                  <div className="sub-content">{environment}</div>
                 </StyledTabContent>
               </CSSTransition>
             );

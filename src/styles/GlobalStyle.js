@@ -9,14 +9,14 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --dark-navy: #020c1b;
     --navy: #0a192f;
-    --light-navy: #172a45;
+    --light-navy: #393e46;
     --lightest-navy: #303C55;
     --navy-shadow: rgba(2, 12, 27, 0.7);
-    --slate: #8892b0;
+    --slate: #c4d6ea;
     --light-slate: #a8b2d1;
-    --lightest-slate: #ccd6f6;
+    --lightest-slate: #eeeeee;
     --white: #e6f1ff;
-    --green: #64ffda;
+    --green: #00adb5;
     --green-tint: rgba(100, 255, 218, 0.1);
 
     --font-sans: 'Calibre', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
@@ -72,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--navy);
+    background-color: #222831;
     color: var(--slate);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
@@ -411,6 +411,14 @@ const GlobalStyle = createGlobalStyle`
 
   .gatsby-image-outer-wrapper {
     height: 100%;
+  }
+
+  .color-green {
+    color: var(--green);
+  }
+
+  .logo {
+
   }
 
   ${TransitionStyles};

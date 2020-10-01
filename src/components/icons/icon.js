@@ -16,10 +16,16 @@ import {
   IconStar,
   IconTwitter,
   IconZap,
+  IconFacebook,
+  IconYouTube,
 } from '@components/icons';
 
 const Icon = ({ name }) => {
   switch (name) {
+    case 'Facebook':
+      return <IconFacebook />;
+    case 'YouTube':
+      return <IconYouTube />;
     case 'AppStore':
       return <IconAppStore />;
     case 'Codepen':

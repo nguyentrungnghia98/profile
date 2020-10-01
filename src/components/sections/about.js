@@ -1,9 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import { srConfig } from '@config';
-import sr from '@utils/sr';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -81,8 +79,6 @@ const StyledPic = styled.div`
     .img {
       position: relative;
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
       transition: var(--transition);
     }
 
@@ -126,34 +122,36 @@ const About = () => {
     }
   `);
 
-  const revealContainer = useRef(null);
-
-  useEffect(() => {
-    sr.reveal(revealContainer.current, srConfig());
-  }, []);
-
-  const skills = ['JavaScript (ES6+)', 'HTML & (S)CSS', 'React', 'Vue', 'Node.js', 'WordPress'];
+  const skills = [
+    'JavaScript (ES6+)',
+    'HTML & (S)CSS',
+    'React/Gatsby',
+    'Angular',
+    'Node.js, express',
+    'Typescript',
+    'MongoDB/GraphQL',
+    'Docker',
+  ];
 
   return (
-    <StyledAboutSection id="about" ref={revealContainer}>
+    <StyledAboutSection id="about">
       <h2 className="numbered-heading">About Me</h2>
 
       <div className="inner">
         <StyledText>
           <div>
-            <p>Hello! I'm Brittany, a software engineer based in Boston, MA.</p>
-
             <p>
-              I enjoy creating things that live on the internet, whether that be websites,
-              applications, or anything in between. My goal is to always build products that provide
-              pixel-perfect, performant experiences.
+              Hello! I'm Nghia Nguyen, I'm a software engineer based in{' '}
+              <span className="green-color">Ho Chi Minh, VN</span>. I love learning, designing and
+              building websites, both front-end and back-end.{' '}
             </p>
 
             <p>
-              Shortly after graduating from{' '}
-              <a href="https://www.ccis.northeastern.edu">Northeastern University</a>, I joined the
-              engineering team at <a href="https://www.upstatement.com">Upstatement</a> where I work
-              on a wide variety of interesting and meaningful projects on a daily basis.
+              I'm a fresh graduate of the{' '}
+              <a href="https://www.hcmus.edu.vn/">University of Science</a>. I've been fortunate to
+              work at start-up MCOM. Where I get involved in company product project as a front-end
+              developer. I learned a lot of valuable things like UI/UX and develop various screens
+              for front end.
             </p>
 
             <p>Here are a few technologies I've been working with recently:</p>

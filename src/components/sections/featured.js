@@ -1,9 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import sr from '@utils/sr';
-import { srConfig } from '@config';
 import { Icon } from '@components/icons';
 
 const StyledProject = styled.div`
@@ -200,7 +198,7 @@ const StyledProject = styled.div`
         &:before,
         .img {
           background: transparent;
-          filter: none;
+          // filter: none;
         }
       }
 
@@ -222,14 +220,10 @@ const StyledProject = styled.div`
 
     .img {
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1) brightness(90%);
-
       @media (max-width: 768px) {
         object-fit: cover;
         width: auto;
         height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(80%);
       }
     }
   }
@@ -255,6 +249,7 @@ const Featured = () => {
               }
               tech
               github
+              youtube
               external
             }
             html
@@ -266,27 +261,18 @@ const Featured = () => {
 
   const featuredProjects = data.featured.edges.filter(({ node }) => node);
 
-  const revealTitle = useRef(null);
-  const revealProjects = useRef([]);
-  useEffect(() => {
-    sr.reveal(revealTitle.current, srConfig());
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
-  }, []);
-
   return (
     <section id="projects">
-      <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
-      </h2>
+      <h2 className="numbered-heading">Some Things I’ve Built</h2>
 
       <div>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover } = frontmatter;
+            const { external, title, tech, github, cover, youtube } = frontmatter;
 
             return (
-              <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
+              <StyledProject key={i}>
                 <div className="project-content">
                   <p className="project-overline">Featured Project</p>
                   <h3 className="project-title">{title}</h3>
@@ -309,6 +295,11 @@ const Featured = () => {
                     {external && (
                       <a href={external} aria-label="External Link">
                         <Icon name="External" />
+                      </a>
+                    )}
+                    {youtube && (
+                      <a href={youtube} aria-label="YouTube Link">
+                        <Icon name="YouTube" />
                       </a>
                     )}
                   </div>

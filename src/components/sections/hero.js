@@ -3,6 +3,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { email } from '@config';
 import { navDelay, loaderDelay } from '@utils';
+import Typewriter from 'typewriter-effect';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -48,12 +49,27 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Brittany Chiang.</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const two = <h2 className="big-heading">Nguyen Trung Nghia.</h2>;
+  // const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const three = (
+    <Typewriter
+      options={{
+        wrapperClassName: 'big-heading',
+        cursorClassName: 'big-heading color-green',
+        strings: [
+          'I build things for the web.',
+          'I am write in Javascript.',
+          'I love building webs.',
+        ],
+        autoStart: true,
+        loop: true,
+      }}
+    />
+  );
   const four = (
     <p>
-      I'm a software engineer based in Boston, MA specializing in building (and occasionally
-      designing) exceptional websites, applications, and everything in between.
+      Meticulous web developer with over 1 years of front end experience. The goal of becoming a
+      professional web developer. &quot;I am still learning.&quot;
     </p>
   );
   const five = (
@@ -63,7 +79,6 @@ const Hero = () => {
   );
 
   const items = [one, two, three, four, five];
-
   return (
     <StyledHeroSection>
       <TransitionGroup component={null}>
