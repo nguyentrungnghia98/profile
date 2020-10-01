@@ -73,6 +73,7 @@ const StyledPic = styled.div`
       .img {
         filter: none;
         mix-blend-mode: normal;
+        box-shadow: 0 10px 30px -15px #9e9e9e;
       }
     }
 

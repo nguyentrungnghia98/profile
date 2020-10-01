@@ -173,7 +173,6 @@ const StyledProject = styled.div`
   }
 
   .project-image {
-    ${({ theme }) => theme.mixins.boxShadow};
     grid-column: 6 / -1;
     grid-row: 1 / -1;
     position: relative;
@@ -187,7 +186,7 @@ const StyledProject = styled.div`
 
     a {
       width: 100%;
-      background-color: var(--green);
+      // background-color: var(--green);
       border-radius: var(--border-radius);
       vertical-align: middle;
 
@@ -202,24 +201,16 @@ const StyledProject = styled.div`
         }
       }
 
-      &:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 3;
-        transition: var(--transition);
-        background-color: var(--navy);
-        mix-blend-mode: screen;
-      }
+
     }
 
     .img {
       border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px -15px #9e9e9e;
+      transition: 0.5s all;
+      &:hover {
+        box-shadow: 0 10px 30px -15px var(--lightest-slate);
+      }
       @media (max-width: 768px) {
         object-fit: cover;
         width: auto;
@@ -247,6 +238,7 @@ const Featured = () => {
                   }
                 }
               }
+              width
               tech
               github
               youtube
@@ -269,8 +261,8 @@ const Featured = () => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, youtube } = frontmatter;
-
+            const { external, title, tech, github, cover, youtube, width } = frontmatter;
+            const imageWidth = width? {width}: {};
             return (
               <StyledProject key={i}>
                 <div className="project-content">
@@ -306,8 +298,8 @@ const Featured = () => {
                 </div>
 
                 <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
-                    <Img fluid={cover.childImageSharp.fluid} alt={title} className="img" />
+                  <a href={external ? external : github ? github : youtube? youtube: '#'}>
+                    <Img fluid={cover.childImageSharp.fluid} alt={title} className="img" style={imageWidth} />
                   </a>
                 </div>
               </StyledProject>

@@ -1,14 +1,14 @@
 ---
-date: '2'
-title: 'Spotify Profile'
-cover: './demo.png'
-github: 'https://github.com/bchiang7/spotify-profile'
-external: 'https://spotify-profile.herokuapp.com/'
+date: '1'
+title: 'Find My Love'
+cover: './find-my-love.jpg'
+width: '50%'
+github: 'https://github.com/nguyentrungnghia98/find-my-love'
+youtube: 'https://youtu.be/MEx3XKNOzOo'
 tech:
-  - React
+  - Ionic
   - Node.js
   - Express
-  - Spotify Web API
 showInProjects: true
 ---
 

@@ -19,6 +19,11 @@ const StyledJobsSection = styled.section`
     margin-bottom: 10px;
     font-size: var(--fz-lg);
   }
+
+  h5, ul {
+    font-size: var(--fz-lg);
+  }
+
 `;
 
 const StyledTabList = styled.ul`
@@ -72,7 +77,7 @@ const StyledTabButton = styled.button`
   background-color: transparent;
   color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--slate)')};
   font-family: var(--font-mono);
-  font-size: var(--fz-xs);
+  font-size: var(--fz-md);
   text-align: left;
   white-space: nowrap;
 

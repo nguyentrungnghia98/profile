@@ -62,6 +62,9 @@ const StyledProject = styled.div`
     border-radius: var(--border-radius);
     background-color: var(--light-navy);
     transition: var(--transition);
+    >header {
+      width: 100%;
+    }
   }
 
   .project-top {
@@ -144,6 +147,7 @@ const Projects = () => {
               tech
               github
               external
+              youtube
             }
             html
           }
@@ -171,7 +175,7 @@ const Projects = () => {
         {projectsToShow &&
           projectsToShow.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { github, external, title, tech } = frontmatter;
+            const { github, external, title, tech, youtube } = frontmatter;
 
             return (
               <CSSTransition
@@ -200,6 +204,11 @@ const Projects = () => {
                           {external && (
                             <a href={external} aria-label="External Link">
                               <Icon name="External" />
+                            </a>
+                          )}
+                          {youtube && (
+                            <a href={youtube} aria-label="YouTube Link">
+                              <Icon name="YouTube" />
                             </a>
                           )}
                         </div>
