@@ -24,6 +24,16 @@ const StyledJobsSection = styled.section`
     font-size: var(--fz-lg);
   }
 
+  h5 {
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+
+  @media (max-width: 992px) {
+    h5, ul, .sub-content {
+      font-size: 18px;
+    }
+  }
 `;
 
 const StyledTabList = styled.ul`

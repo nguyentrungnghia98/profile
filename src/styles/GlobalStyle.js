@@ -78,7 +78,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: var(--fz-xl);
     line-height: 1.3;
 
-    @media (max-width: 480px) {
+    @media (max-width: 992px) {
       font-size: var(--fz-lg);
     }
 
