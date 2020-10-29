@@ -13,4 +13,4 @@ tech:
 showInProjects: true
 ---
 
-The dating app that lets you find everyone you have crossed paths with; the people destiny has decided you should meet. Like the profiles that catch your eye, get a Crush and most importantly, get together!
+An online tutoring website for students and teachers with a user friendly interface that makes it easy for students to find teachers, react-time chat, create contracts, pay and manage complaints.
